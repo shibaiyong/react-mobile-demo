@@ -17,13 +17,16 @@ class List extends React.Component {
       { id: 6, name: 'hahah666' },
       { id: 7, name: 'hahah777' }
     ]
+    this.state={
+      
+    }
   }
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
 
   }
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
 
   }
 

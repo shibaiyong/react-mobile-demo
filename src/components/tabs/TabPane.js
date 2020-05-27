@@ -5,11 +5,11 @@ class TabPane extends React.Component{
     super(props)
   }
 
-  componentWillReceiveProps(nextProps){
+  UNSAFE_componentWillReceiveProps(nextProps){
 
   }
 
-  componentWillMount(){
+  UNSAFE_componentWillMount(){
 
   }
 

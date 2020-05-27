@@ -3,14 +3,17 @@ import React from 'react'
 class TabContent extends React.Component{
   constructor(props){
     super(props)
+    this.state={
+      
+    }
 
   }
 
-  componentWillReceiveProps(nextProps){
+  UNSAFE_componentWillReceiveProps(nextProps){
 
   }
 
-  componentWillMount(){
+  UNSAFE_componentWillMount(){
 
   }
 

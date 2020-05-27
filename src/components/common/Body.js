@@ -13,7 +13,7 @@ class Body extends React.Component {
 
   }
 
-  componentWillReceiveProps(nextProps, nextContent) {
+  UNSAFE_componentWillReceiveProps(nextProps, nextContent) {
     //console.log(this.props)  //可以获得最新的prop
     //console.log(nextProps)   //同上
     this.setState({

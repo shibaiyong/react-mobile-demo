@@ -9,11 +9,11 @@ class PageCom extends React.Component {
             currentPage: 4
         }
     }
-    componentWillReceiveProps(nextprops) {
+    UNSAFE_componentWillReceiveProps(nextprops) {
         //在这里根据父组件传过来的props更新状态，不会触发额外得render。但是在第一次渲染的时候不执行。这也是他跟willmount的区别。
         
     }
-    componentWillMount() {
+    UNSAFE_componentWillMount() {
         
         //在这里根据父组件传过来的props更新状态，不会触发额外得render.在componentWillReceiveProps中同样是安全的
         this.calculatePageNum();

@@ -8,11 +8,11 @@ class Tabs extends React.Component{
     
   }
 
-  componentWillReceiveProps(nextProps){
+  UNSAFE_componentWillReceiveProps(nextProps){
 
   }
 
-  componentWillMount(){
+  UNSAFE_componentWillMount(){
 
   }
 

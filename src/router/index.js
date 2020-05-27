@@ -38,60 +38,31 @@ const supportsHistory = 'pushState' in window.history
 //   </Router>
 // )
 
-const Root = () => (
-  <BrowserRouter forceRefresh={!supportsHistory}>
-    <Provider store={Store}>
-      <App>
+// const Root = () => (
+//   <BrowserRouter forceRefresh={!supportsHistory}>
+//     <Provider store={Store}>
+//       <App>
         
-        <Switch>
-          <Route exact path="/" component={IndexCom}></Route>
-          <Route path='/detail' component={Detail}></Route>
-          <Route exact path='/tabs' component={Tabs}></Route>
-          <Route exact path='/list' component={List}></Route>
-          <Route path='/broadcast' component={Broadcast}></Route>
-          <Route path='/paginationcom' component={paginationCom}></Route>
-          <Mine>
-            <Route exact path='/mine/login' component={Login}></Route>
-            <Route path='/mine/register' component={Register}></Route>
-          </Mine>
-        </Switch>
+//         <Switch>
+//           <Route exact path="/" component={IndexCom}></Route>
+//           <Route path='/detail' component={Detail}></Route>
+//           <Route exact path='/tabs' component={Tabs}></Route>
+//           <Route exact path='/list' component={List}></Route>
+//           <Route path='/broadcast' component={Broadcast}></Route>
+//           <Route path='/paginationcom' component={paginationCom}></Route>
+//           <Mine>
+//             <Route exact path='/mine/login' component={Login}></Route>
+//             <Route path='/mine/register' component={Register}></Route>
+//           </Mine>
+//         </Switch>
         
-      </App>
-    </Provider>
-  </BrowserRouter>
-)
+//       </App>
+//     </Provider>
+//   </BrowserRouter>
+// )
 
 
-{/* <Router component={App}>
-        <Route exact path="/" auth="true" component={IndexCom}></Route>
-        <Route path='/detail' component={Detail}></Route>
-        <Route exact path='/tabs' component={Tabs}></Route>
-        <Route exact path='/list' component={List}></Route>
-        <Route path='/broadcast' component={Broadcast}></Route>
-        <Route path='/paginationcom' component={paginationCom}></Route>
-        <Router component={Mine}>
-          <Route exact path='/mine/login' component={Login}></Route>
-          <Route path='/mine/register' component={Register}></Route>
-        </Router>
-      </Router> 
-    
-    <App>
-        <Switch>
-          <Route exact path="/" component={IndexCom}></Route>
-          <Route path='/detail' component={Detail}></Route>
-          <Route exact path='/tabs' component={Tabs}></Route>
-          <Route exact path='/list' component={List}></Route>
-          <Route path='/broadcast' component={Broadcast}></Route>
-          <Route path='/paginationcom' component={paginationCom}></Route>
-          <Mine>
-            <Route exact path='/mine/login' component={Login}></Route>
-            <Route path='/mine/register' component={Register}></Route>
-          </Mine>
-        </Switch>
-      </App>
-    
-    
-  */}
+
 
 // react-router 4.x 新的写法
 // render 方法渲染组件时,props要显式的传入组件中;这里的props分别代表 history location match;这样在根组件中就可以使用了，否则在app组件中无法使用。
@@ -183,17 +154,17 @@ class RouterBefore extends React.Component{
   }
 }
 
-// const Root = () => (
-//   <BrowserRouter>
-//     <Provider store={Store}>
-//       <App>
-//         <Switch>
-//           <RouterBefore routerList={routerList}/>
-//         </Switch>
-//       </App>
-//     </Provider>
-//   </BrowserRouter>
-// )
+const Root = () => (
+  <BrowserRouter>
+    <Provider store={Store}>
+      <App>
+        <Switch>
+          <RouterBefore routerList={routerList}/>
+        </Switch>
+      </App>
+    </Provider>
+  </BrowserRouter>
+)
 
 
 export default Root
