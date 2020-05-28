@@ -1,14 +1,8 @@
 
 import axios from 'axios'
 
-import { BrowserRouter } from 'react-router-dom'
-
-// import createBrowserHistory from 'history/createBrowserHistory'
-
-// const { history, location } = new BrowserRouter()
-
 let instance = axios.create({
-  baseURL: 'http://t.weather.sojson.com'
+  //baseURL: 'http://t.weather.sojson.com'
 })
 
 //请求的全局拦截器
@@ -25,7 +19,7 @@ instance.interceptors.request.use(
 
 instance.interceptors.response.use(
     response => {
-        if (response.data.code == 2002) {
+        if (response.data.code === 2002) {
             // return router.replace('/login')
         }
         return response

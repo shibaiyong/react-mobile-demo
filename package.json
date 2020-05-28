@@ -97,7 +97,8 @@
     ]
   },
   "devDependencies": {
-    "antd-mobile": "^2.3.3"
+    "antd-mobile": "^2.3.3",
+    "babel-plugin-import": "^1.13.0"
   },
   "jest": {
     "roots": [
@@ -149,9 +150,13 @@
       "jest-watch-typeahead/testname"
     ]
   },
+  "proxy": "http://t.weather.sojson.com",
   "babel": {
     "presets": [
       "react-app"
+    ],
+    "plugins": [
+      ["import", { "libraryName": "antd-mobile", "style": "css" }] 
     ]
   }
 }

@@ -1,8 +1,8 @@
 import React from 'react'
 import { Route, BrowserRouter, Switch, Redirect } from 'react-router-dom'
-import { Provider } from 'react-redux'; // react和redux连接的桥梁，就是这个Provider
+import { Provider } from 'react-redux' // react和redux连接的桥梁，就是这个Provider
 
-import Store from '../redux/store.js';
+import Store from '../redux/store.js'
 
 import IndexCom from '../components/index/Index.js'
 import {Mine} from '../components/mine/Mine.js'

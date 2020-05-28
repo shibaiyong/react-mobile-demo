@@ -1,7 +1,8 @@
 import React from 'react'
-
 import Header from '../common/Header.js'
 import Body from '../common/Body.js'
+
+import { getWeather } from '../api/require.js'
 
 
 class IndexCom extends React.Component {
@@ -26,9 +27,9 @@ class IndexCom extends React.Component {
         this.linkTo(e.key);
     }
     componentDidMount() {
-        // console.log(this.props.match);
-        // console.log(this.props.history);
-        // console.log(this.props.location);
+        getWeather().then(res => {
+            console.log(res)
+        })
     }
     render() {
 
