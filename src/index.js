@@ -1,18 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import './index.css';
-//import App from './App';
-import * as serviceWorker from './serviceWorker';
-
-
 
 import './static/style/common.css'
 import './static/style/index.css'
 // import 'antd/dist/antd.css';
-import 'antd/lib/menu/style/css'
-import 'antd/lib/icon/style/css'
 
-// import Root from './components/app/APP'
+import 'antd-mobile/dist/antd-mobile.css'; 
 
 import Root from './router/index.js'
 

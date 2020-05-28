@@ -17,7 +17,7 @@ class Header extends React.Component {
         //需要传入额外参数时，事件对象放在最后传入，并且不能省略。
         //console.log(SyntheticEvent.nativeEvent)
         let e = SyntheticEvent.nativeEvent
-        if (e.keyCode == 13) {
+        if (e.keyCode === 13) {
             this.state.willDoThing.push(e.target.value)
             //异步
             this.setState({

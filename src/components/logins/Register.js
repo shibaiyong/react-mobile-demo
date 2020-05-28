@@ -45,7 +45,7 @@ class Register extends React.Component {
 
     let tempState
 
-    if(elementType == 'checkbox' || elementType == 'radio'){
+    if(elementType === 'checkbox' || elementType === 'radio'){
 
       tempState = Object.assign({},this.state.registerForm,{[attribute]:e.target.checked})
 

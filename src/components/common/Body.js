@@ -26,7 +26,7 @@ class Body extends React.Component {
   deleteThing(index) {
     var len = this.state.willToDoThings.length;
     for (var i = 0; i < len; i++) {
-      if (i == index) {
+      if (i === index) {
         let val = this.state.willToDoThings.splice(i, 1);//返回值是别删除的项
         console.log(val)
         this.setState({
@@ -38,7 +38,7 @@ class Body extends React.Component {
   completeThing(index) {
     var len = this.state.willToDoThings.length;
     for (var i = 0; i < len; i++) {
-      if (i == index) {
+      if (i === index) {
         let val = this.state.willToDoThings.slice(i, i + 1);//返回值是别删除的项
         this.state.completeThings.push(val)
         this.setState({
@@ -63,8 +63,8 @@ class Body extends React.Component {
                 <li key={index}>
                   <input type="checkbox" />
                   <p>{item}</p>
-                  <a onClick={this.linkTo.bind(this, index, item)}>详</a>
-                  <a onClick={this.deleteThing.bind(this, index)}>删</a>
+                  <span onClick={this.linkTo.bind(this, index, item)}>详</span>
+                  <span onClick={this.deleteThing.bind(this, index)}>删</span>
 
                 </li>
               )

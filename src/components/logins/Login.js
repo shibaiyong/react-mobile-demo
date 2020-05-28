@@ -1,6 +1,8 @@
 import React from 'react';
-import { connect } from 'react-redux'
-import { MyContext } from '../mine/Mine'
+import { connect } from 'react-redux';
+import { List, InputItem, WhiteSpace } from 'antd-mobile';
+
+
 class Login extends React.Component {
   constructor(props) {
     super(props)
@@ -14,9 +16,6 @@ class Login extends React.Component {
 
     this.submitForm = this.submitForm.bind(this)
 
-    this.textInput = React.createRef()
-
-    this.focusInput = this.focusInput.bind(this)
   }
 
   submitForm(event) {
@@ -28,35 +27,23 @@ class Login extends React.Component {
     console.log(this.loginForm)
   }
 
-  focusInput(){
-    this.textInput.current.focus()
-  }
-
   componentDidMount() {
   }
   componentWillUnmount() {
-    //组件销毁之前取消监听，因为被销毁的组件无法响应store里面的数据变化。
-    //this.unsubscribe()
   }
   render() {
     return (
       <div className='login'>
         <ul>
-          <li><label>UserName&nbsp;:&nbsp;&nbsp;</label><input ref={input => this.username = input} type="text" className='shi-input' /></li>
+          <li>
+            <label>UserName&nbsp;:&nbsp;&nbsp;</label>
+            <InputItem clear ref={input => this.username = input}></InputItem>
+            </li>
           <li><label>Password&nbsp;:&nbsp;&nbsp;</label><input ref={input => this.password = input} type="text" className='shi-input' /></li>
           <li><input type="submit" className='shi-input' value='登录' onClick={this.submitForm}/></li>
           <li><input type="checkbox" ref={input => this.remember = input}/>记住密码</li>
         </ul>
-        <div style={{ width: '300px', height: '100px', border: '1px solid blue' }}>
-
-          <input type='text' onBlur={this.props.changeText} ref={this.textInput}/>
-
-          <span onClick={this.focusInput}>{this.props.text}</span><br />
-          {this.props.num}
-        </div>
-        <MyContext.Consumer>
-          { value => <span>{value}</span> }
-        </MyContext.Consumer>
+        
       </div>
     )
   }
