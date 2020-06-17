@@ -1,0 +1,257 @@
+.vipcard{
+    padding:0.2rem 0.15rem;
+    box-sizing: border-box;
+}
+
+.vipcard strong{
+    color:#ef5646;
+}
+.vipcard ul li:first-child{
+    display:flex;
+    justify-content: space-between;
+}
+
+.vipcard ul{
+    border-bottom: 1px solid #eee;
+    padding-bottom:0.15rem;
+}
+.vipcard ul li div span{
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 0.16rem;
+    font-weight: bold;
+}
+.vipcard ul li:nth-child(2){
+    text-align: right;
+    font-size: 0.12rem;
+    color:#e4a651;
+    margin-top:0.02rem;
+}
+
+.vipcard ul li:nth-child(2) span{
+    background:#f9f8e6;
+    display:inline-block;
+    padding:0.02rem 0.06rem;
+}
+
+.uploadarea,.tipcontent{
+    padding:0 0.15rem;
+    box-sizing: border-box;
+}
+.uploadarea{
+    padding-bottom:0.4rem;
+    border-bottom:2px solid #eee;
+}
+.uploadarea span{
+    display: inline-block;
+    vertical-align: middle;
+}
+.uploadarea .mybtn{
+    background:#6998de;
+    color:white;
+    width:1.3rem;
+    font-size:0.16rem;
+    height:0.34rem;
+}
+.uploadarea .mybtn:active{
+    background:#6998de;
+    color:white;
+}
+.uploadarea .mybtn:focus{
+    background:#6998de;
+    color:white;
+}
+.uploadarea .mui-icon{
+    font-size: 0.2rem;
+    margin-right:0.04rem;
+    vertical-align: top;
+}
+.uploadarea ul li:nth-child(1){
+    text-align: right;
+}
+
+.uploadarea ul li:nth-child(2) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.uploadarea ul li:nth-child(2) div span{
+    font-size: 0.12rem;
+    background:#dde4f4;
+    color:#6780c3;
+    padding:0 0.04rem;
+    border-radius: 0.04rem;
+}
+.uploadarea ul li:nth-child(2) div strong{
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 0.08rem;
+}
+.uploadarea .ticketlist{
+    margin-top:0.25rem;
+}
+
+.uploadarea .inputlist{
+    border:1px solid #e8f0ff;
+    border-radius: 0.06rem;
+    overflow: hidden;
+    margin-top:0.15rem;
+    padding-left:0.1rem;
+    background:white;
+}
+
+.uploadarea ul :nth-child(3){
+    margin-top:0.3rem;
+}
+
+.uploadarea .inputlist input{
+    width:70%;
+    border:none;
+    margin-bottom:0;
+}
+.uploadarea .inputlist span{
+    width:25%;
+    font-size:0.16rem;
+    color:#b5b6b8;
+}
+.uploadarea .mui-icon-plus{
+    
+}
+.uploadarea .mybtn1{
+    background:#fbfcfe;
+    color:#b5b6b8;
+    width:2rem;
+    font-size:0.16rem;
+    border:1px solid #e2ecf5;
+    outline:none;
+    height:0.42rem;
+}
+.uploadarea .mybtn1:active{
+    background:#fbfcfe;
+    color:#b5b6b8;
+}
+.uploadarea .mybtn1:focus{
+    background:#fbfcfe;
+    color:#b5b6b8;
+}
+.uploadarea li:nth-child(5){
+    text-align: center;
+    margin-top:0.3rem;
+}
+.tipcontent h3{
+    background: url(../img/title_bg.jpg) no-repeat center center;
+    background-size: 1.64rem 0.12rem;
+    font-size: 0.14rem;
+    text-align: center;
+    padding:0.12rem 0;
+    margin-top:0.2rem;
+}
+.tipcontent ul li{
+    color:#4a4a4a;
+    font-size: 0.12rem;
+}
+
+.buttonwrapper{
+height: 0.43rem;
+}
+
+.buttoncontainer{
+position:fixed;
+display: flex;
+justify-content: space-around;
+bottom:0rem;
+left:0;
+width: 100%;
+}
+
+.buttoncontainer span{
+display: inline-block;
+width: 50%;
+height: 0.42rem;
+
+text-align: center;
+line-height: 0.42rem;
+color: white;
+font-size: 0.15rem;
+}
+
+.buttoncontainer span:nth-child(1){
+background: #f0f5fb;
+color:#404143;
+}
+
+.buttoncontainer span:nth-child(2){
+background: #7cb6db;
+}
+
+.alertmodelcontainer{
+    position: fixed;
+    height: 100%;
+    width:100%;
+    background:rgba(0,0,0,0.6);
+    z-index: 100;
+    top:0;
+    left:0;
+}
+
+.alertModel{
+    width:80%;
+    margin: 0 auto;
+    margin-top:30%;
+    border-radius: 0.1rem;
+    overflow: hidden;
+}
+
+.alert-body .alert_title{
+    text-align: center;
+    font-size:0.18rem;
+}
+
+
+.alert-body .mui-left{
+    font-size:0.14rem;
+    margin-top:0.2rem;
+}
+
+.alert-body .mui-left label{
+    padding:0;
+    padding-left:0.3rem;
+}
+
+.mui-checkbox input[type=checkbox]:before, .mui-radio input[type=radio]:before{
+    font-size: 0.22rem;
+}
+
+.alert-body .mui-radio.mui-left input[type=radio]{
+    left:0;
+    top:0;
+}
+
+.alert-body .alert_content{
+    padding: 0.05rem 0 0.3rem;
+}
+
+.alertmodelcontainer .alert-body{
+    background:white;
+    padding:20px 20px 20px 20px;
+}
+
+
+.compelet{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding:0.1rem 0 0rem;
+    font-size: 0.16rem;
+}
+
+.compelet span:nth-child(2){
+ color:#4475d2;
+}
+
+.form-group{
+    border-bottom:0.5px solid #c7d9fd;
+    margin-bottom:0px;
+    padding:6px 0px;
+    margin-top:6px;
+}

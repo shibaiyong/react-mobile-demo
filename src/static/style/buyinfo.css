@@ -1,0 +1,152 @@
+.buyinfo .bankcardinfo{
+	padding:0.2rem 0.1rem;
+	box-sizing: border-box;
+	background: white;
+	display:flex;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+}
+.buyinfo .bankcardinfo>img{
+    display: inline-block;
+	width:1.04rem;
+	height:1.04rem;
+	margin-right: 0.1rem;
+}
+
+.buyinfo .bankcardinfo ul{
+	width:3.3rem;
+}
+
+.buyinfo .bankcardinfo ul li.source{
+	font-size: 0.14rem;
+}
+
+.buyinfo .bankcardinfo ul .price{
+    margin:0.1rem 0 0.04rem;
+    color:#ba4f3f;
+    font-weight: bold;
+    font-size: 0.14rem;
+}
+
+.buyinfo .bankcardinfo ul .transition{
+    font-size: 0.12rem;
+    color:#8c8c8c;
+    display: flex;
+    align-items: center;
+}
+
+.buyinfo .bankcardinfo ul .transition .hassale{
+    margin-right: 0.06rem;
+}
+
+
+
+.buyinfo .bankcardinfo ul li:nth-child(1){
+	font-size: 0.16rem;
+	font-weight: bold;
+	margin-bottom:0.06rem;
+}
+
+.buyinfo .bankcardinfo ul li:nth-child(1) span{
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.buyinfo .bankcardinfo ul li:nth-child(1) span:nth-child(2){
+	vertical-align: 2%;
+}
+
+
+.notice{
+    padding:0 0.1rem;
+    box-sizing: border-box;
+    margin-top: 0.1rem;
+}
+
+
+.notice h3{
+    font-size: 0.14rem;
+    padding:0.1rem 0;
+    color:#343434;
+}
+
+.notice ul{
+    font-size: 0.12rem;
+    color:#7b7b7b;
+}
+
+
+.buttonwrapper{
+    height: 0.47rem;
+}
+    
+.buttoncontainer{
+    position:fixed;
+    display: flex;
+    justify-content: space-around;
+    bottom:0rem;
+    left:0;
+    width: 100%;
+    font-size: 0;
+}
+
+.buttoncontainer>span{
+    display: inline-block;
+    height: 0.46rem;
+    text-align: center;
+    line-height: 0.46rem;
+    color: white;
+    font-size: 0.14rem;
+}
+
+.buttoncontainer>span:nth-child(1){
+    background: #f0f5fb;
+    color:#404143;
+    flex:1;
+    display: flex;
+    justify-content: space-around;
+}
+
+.buttoncontainer>span:nth-child(2){
+    background: #ee7b68;
+    width:35%;
+    letter-spacing: 1px;
+}
+
+.buttoncontainer .mui-numbox-input{
+    border:none !important;
+    width:0.35rem;
+    margin:0;
+    box-sizing: border-box;
+    height: 0.33rem;
+    padding:0;
+    text-align: center;
+    font-size: 0.14rem;
+}
+
+
+.buttoncontainer .mui-btn{
+    margin:0;
+    width:0.2rem;
+    height: 0.2rem;
+    padding:0;
+    border-color:#8cb2e1;
+    color:#8cb2e1;
+    font-size: 0.1rem;
+}
+
+.buttoncontainer .count{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.buttoncontainer .total{
+    font-size: 0.14rem;
+}
+
+.buttoncontainer .total span{
+    color:#ba4f3f;
+}
+
+    

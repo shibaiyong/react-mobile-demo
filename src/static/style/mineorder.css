@@ -1,0 +1,139 @@
+body{
+	background:#fafafa;
+}
+
+.mineorder .searcharea{
+	padding:0.06rem 0.15rem;
+	box-sizing: border-box;
+	background:white;
+	position: relative;
+}
+
+.mineorder .searcharea label{
+	position: absolute;
+	right: 0.25rem;
+	top:50%;
+	transform: translateY(-50%);
+	display: inline-block;
+	width:0.25rem;
+	height:0.25rem;
+	background:transparent;
+}
+
+.mineorder .searcharea input{
+	border: none;
+	outline:none;
+	background:#f6f6f6 url(../img/searchico@2x.png) no-repeat 0.14rem center;
+	background-size: 0.18rem;
+	width:100%;
+	height:0.45rem;
+	border-radius: 0.22rem;
+	padding-left:0.40rem;
+	padding-right: 0.32rem;
+	box-sizing: border-box;
+	margin-bottom:0;
+}
+
+
+.mineorder .cardstatus{
+	padding: 0.08rem 0.3rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-size: 0.14rem;
+	font-weight: bold;
+	background:white;
+	border-top:1px solid #eee;
+	border-bottom:1px solid #eee;
+	position: relative;
+}
+
+.mineorder .cardstatus span{
+	display: inline-block;
+	color:rgb(51,51,51);
+	line-height: 0.28rem;
+	height: 0.28rem;
+}
+
+.mineorder .cardstatus span.bottomline{
+	background:url(../img/bottomline@2x.png) no-repeat center bottom;
+	background-size:100% 0.04rem;
+}
+
+
+.mineorder .statuslist{
+	box-sizing: border-box;
+	background: white;
+	margin:0 0.1rem;
+	margin-top: 0.15rem;
+	border-radius: 6px;
+    box-shadow: #eee 0 0 0.1rem 0.05rem;
+    padding-bottom:0.1rem;
+}
+
+.mineorder .reason{
+    font-size: 0.14rem;
+    color:#a8644f;
+    padding-top:0.1rem;
+    margin-top:0.1rem;
+    border-top:1px solid #eee;
+}
+
+.mineorder .bankcardinfo{
+	display:flex;
+	align-items: center;
+	padding: 0.2rem 0.1rem;
+    box-sizing: border-box;
+    background: white;
+    margin: 0;
+    margin-top:0;
+    border-radius: 6px;
+    box-shadow: #eee 0 0 0.1rem 0.05rem;
+    display: flex;
+    align-items: center;
+}
+.mineorder .bankcardinfo>img{
+	width:0.66rem;
+	height:0.66rem;
+	margin-right: 0.1rem;
+}
+
+.mineorder .bankcardinfo ul li:nth-child(2),.bankcardinfo ul li:nth-child(3){
+    font-size: 0.12rem;
+    color:#7a7a7a;
+}
+
+
+
+.mineorder .bankcardinfo ul{
+	width:3.3rem;
+}
+
+.mineorder .bankcardinfo dl dd img{
+    width:0.4rem;
+    height:0.4rem;
+}
+
+.mineorder .bankcardinfo dl dt{
+    font-size: 0.14rem;
+    color:#ef5646;
+    margin-bottom:0.06rem;
+}
+
+.mineorder .bankcardinfo ul li:nth-child(1){
+	font-size: 0.14rem;
+	font-weight: bold;
+	margin-bottom:0.06rem;
+}
+
+.mineorder .bankcardinfo ul li:nth-child(1) span{
+	display: inline-block;
+    vertical-align: middle;
+    color:#7a7a7a;
+}
+
+.mineorder .bankcardinfo ul li:nth-child(1) span:nth-child(2){
+	vertical-align: 2%;
+}
+
+

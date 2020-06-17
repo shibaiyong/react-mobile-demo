@@ -1,0 +1,329 @@
+body{
+	background:#fafafa;
+}
+
+.progressquery .searcharea{
+	padding:0.06rem 0.15rem;
+	box-sizing: border-box;
+	background:white;
+	position: relative;
+}
+
+.progressquery .searcharea label{
+	position: absolute;
+	right: 0.25rem;
+	top:50%;
+	transform: translateY(-50%);
+	display: inline-block;
+	width:0.25rem;
+	height:0.25rem;
+	background:transparent;
+}
+
+.progressquery .searcharea input{
+	border: none;
+	outline:none;
+	background:#f6f6f6 url(../img/searchico@2x.png) no-repeat 0.14rem center;
+	background-size: 0.18rem;
+	width:100%;
+	height:0.45rem;
+	border-radius: 0.22rem;
+	padding-left:0.40rem;
+	padding-right: 0.32rem;
+	box-sizing: border-box;
+	margin-bottom:0;
+}
+
+
+.cardstatuscontainer{
+	padding: 0 0.3rem;
+	box-sizing: border-box;
+	overflow: hidden;
+	background:white;
+}
+
+
+.cardstatus{
+	padding: 0.08rem 0;
+	font-size: 0.14rem;
+	font-weight: bold;
+	background:white;
+	border-top:1px solid #eee;
+	border-bottom:1px solid #eee;
+	overflow-x:auto;
+	overflow-y:hidden;
+	white-space: nowrap;
+
+}
+
+.cardstatus span{
+	display: inline-block;
+	color:rgb(51,51,51);
+	line-height: 0.28rem;
+	height: 0.28rem;
+	margin-right: 0.06rem;
+}
+
+.cardstatus span.bottomline{
+	background:url(../img/bottomline@2x.png) no-repeat center bottom;
+	background-size:100% 0.04rem;
+}
+
+.progressquery .bankcardinfo{
+	padding:0.2rem 0.1rem;
+	box-sizing: border-box;
+	background: white;
+	margin:0 0.15rem;
+	margin-top: 0.15rem;
+	border-radius: 6px;
+	box-shadow: #eee 0 0 0.1rem 0.05rem;
+	display:flex;
+	align-items: center;
+}
+.progressquery .bankcardinfo>img{
+	display: inline-block;
+	width:0.75rem;
+	height:0.75rem;
+	margin-right: 0.1rem;
+}
+
+.progressquery .bankcardinfo ul li:nth-child(2){
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-size: 0.14rem;
+}
+
+.progressquery .bankcardinfo ul li:nth-child(2) .love span:nth-child(2){
+	vertical-align: -14%;
+}
+
+.progressquery .bankcardinfo ul{
+	width:3.3rem;
+}
+
+.progressquery .bankcardinfo ul li:nth-child(2) span{
+	vertical-align: middle;
+	color:#999;
+}
+
+.progressquery .bankcardinfo ul li:nth-child(1){
+	font-size: 0.18rem;
+	font-weight: bold;
+	margin-bottom:0.22rem;
+}
+
+.progressquery .bankcardinfo ul li:nth-child(1) span{
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.progressquery .bankcardinfo ul li:nth-child(1) span:nth-child(2){
+	vertical-align: 2%;
+}
+
+.progressquery .bankcardinfo ul li:nth-child(2) .price{
+	color:red;
+	font-size: 0.16rem;
+}
+
+
+.alert-body .form-grounp:first-child{
+	display: flex;
+	align-items: center;
+
+}
+.alertmodelcontainer{
+	position: fixed;
+	height: 100%;
+	width:100%;
+	background:rgba(0,0,0,0.6);
+	z-index: 100;
+	top:0;
+	left:0;
+
+}
+
+.alertmodelcontainer .alert-body{
+	background:white;
+	padding:20px 20px 20px 20px;
+}
+
+.compelet .btn{
+	width:100%;
+	background:#3f41ec;
+	border:none;
+	color:white;
+	height:0.4rem;
+}
+.btn:focus,.btn:active{outline:0;}
+.compelet{
+	text-align:center;
+	margin-top:30px;
+}
+.opreatBtn .btnactivecolor{
+	background:#3d48e3;
+	color:white;
+	border:none;
+}
+.cancelIco{
+	text-align:right;
+	margin-bottom: 12px;
+}
+.cancelIco img{
+	width:24px;
+	height:24px;
+}
+.alertModel{
+	width:80%;
+	margin: 0 auto;
+	margin-top:25%;
+}
+
+.form-group{
+
+	border-bottom:0.5px solid #c7d9fd;
+	margin-bottom:0px;
+	padding:6px 0px;
+	margin-top:6px;
+}
+
+.form-group.row{
+	margin-left:0px;
+	margin-right:0px;
+}
+
+.form-group.row .col-xs-12{
+	padding:0;
+}
+.form-group.row .col-xs-12 .form-control{
+	padding:0;
+	border:none;
+	outline: none;
+	box-shadow: none;
+	-webkit-tap-highlight-color:rgba(0, 0, 0, 0); /*去除点击高亮的颜色*/
+}
+.form-group.row .col-xs-12 .form-control[readonly]{
+	background:white;
+}
+.control-label{
+	padding-right:0px;
+	padding-left:0px;
+}
+.hasend{
+	color:#3e40eb;
+}
+.yanzheng{
+	display:flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.yanzheng .form-control{
+	width:75%;
+}
+.form-group.errorcontainer{
+	margin:0;
+	padding:0;
+	border:none;
+	display:none;
+}
+.error-tip{
+	font-size:12px;
+}
+
+.mui-off-canvas-left, .mui-off-canvas-right{
+	background:white;
+	width:85%;
+}
+
+.asidemenu{
+	position: absolute;
+	right:0.29rem;
+	top:0.7rem;
+	background:white;
+	padding:0 0.04rem;
+}
+
+.transparency{
+	visibility: hidden;
+}
+
+.mui-off-canvas-right .mine strong{
+	display: inline-block;
+	width:0.48rem;
+	height:0.2rem;
+	vertical-align: middle;
+	text-align: center;
+    color: rgb(36,131,236);
+	border-radius: 0.1rem;
+	font-size:0.12rem;
+	border: 1px solid rgb(36,131,236);
+}
+
+.mui-off-canvas-right .mine{
+	display:flex;
+	justify-content: space-between;
+	width:100%;
+	margin-top:0.1rem;
+}
+
+.mui-off-canvas-right .mui-icon-close{
+	font-size: 0.2rem;
+}
+
+.mui-off-canvas-right .mui-scroll{
+	padding:0.15rem;
+	font-size: 0.14rem;
+}
+
+.content{
+	display:flex;
+	flex-wrap: wrap;
+	/* justify-content: space-between; */
+	margin-top:0.15rem;
+}
+
+.content span{
+	display: inline-block;
+	width: 22%;
+	height: 0.28rem;
+	border:1px solid rgb(227,227,227);
+	border-radius: 5px;
+	text-align: center;
+	line-height: 0.28rem;
+	color: rgb(51,51,51);
+	font-size: 0.12rem;
+	margin-top:0.1rem;
+	margin-right: 0.10rem;
+	position: relative;
+}
+
+.content span:nth-child(4n) {
+    margin-right: 0;
+}
+
+
+.content .addbtn a{
+	display:inline-block;
+	color:rgb(36,131,236);
+	vertical-align: middle;
+}
+
+.content .addbtn img{
+	width: 0.14rem;
+	margin-right: 0.04rem;
+	vertical-align: middle;
+}
+
+.content .addbtn .mui-icon-plusempty{
+	vertical-align: middle;
+	font-size: 0.2rem;
+}
+
+.content .mui-icon-minus{
+	font-size:0.18rem;
+	position: absolute;
+	right:-0.08rem;
+	top:-0.08rem;
+	background:white;
+}

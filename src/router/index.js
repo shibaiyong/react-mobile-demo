@@ -4,10 +4,11 @@ import { Provider } from 'react-redux' // react和redux连接的桥梁，就是�
 
 import Store from '../redux/store.js'
 
-import IndexCom from '../components/index/Index.js'
-import {Mine} from '../components/mine/Mine.js'
-import Login from '../components/logins/Login'
-import Register from '../components/logins/Register'
+import IndexCom from '../components/index/Index'
+import ProgressQuery from '../components/query/ProgressQuery'
+import BuyInfo from '../components/buyinfo/BuyInfo'
+import MineOrder from '../components/mineorder/MineOrder'
+
 import App from '../components/app/APP'
 
 const routerList = [
@@ -16,16 +17,21 @@ const routerList = [
     component: IndexCom,
     auth: true,
     title:'首页'
-  }, {
-    path: '/mine/login',
-    ParentComponent: Mine,
-    component: Login,
-    title:'登录'
-  }, {
-    path: '/mine/register',
-    ParentComponent: Mine,
-    component: Register,
-    title:'注册'
+  },{
+    path: '/progressquery',
+    component: ProgressQuery,
+    auth: true,
+    title:'进度查询'
+  },{
+    path: '/buyinfo',
+    component: BuyInfo,
+    auth: true,
+    title:'购买'
+  },{
+    path: '/mineorder',
+    component: MineOrder,
+    auth: true,
+    title:'我的订单'
   }
 ]
 

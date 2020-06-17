@@ -1,27 +1,132 @@
 #root {
     width:100%;
     height:100%;
-    background:#cdcdcd;
+    
 }
-body,html {
+.rootContainer{
+    height: 100%;
+}
+/* body,html {
     height:100%;
+} */
+body, div, ul, ol, dl, dt, dd, li, dl, h1, h2, h3, h4, p
+{margin:0;padding:0;font-style:normal;} 
+ 
+ol, ul ,li{list-style: none;}
+img {border: 0; vertical-align:middle;}
+body{color:#000000;background:#FFF;}
+.clear{clear:both;height:1px;width:100%; overflow:hidden; margin-top:-1px;}
+a,a:hover{color:#000000;text-decoration:none !important;}
+a:hover{text-decoration:none !important;}
+
+
+body iframe {display: none;}
+
+/* 清除浮动 */
+.clearfixed::after{
+  display:block; content:""; height:0; clear:both; overflow:hidden; visibility:hidden;
 }
-* {
-    margin: 0;padding:0;
+
+/* 修复margin-top值叠加到父元素上面 */
+
+.cleartop::before{
+	content:' ';
+	display: table;
 }
-ul{
-  list-style: none;
+
+.error-tip{
+	color:red;
+	font-size: 12px;
+	font-weight: normal;
+	display: inline-block;
+	height: 12px;
 }
-.shi-input{
-  width: 250px;height: 35px;
-  border-radius: 4px;
-  outline: none;
-  border: 1px solid #ddd;
-  padding-left:8px;
+
+input::-webkit-input-placeholder{
+  color:rgb(204,204,204)
 }
-.noIndex{
-    display: none;
+
+input::-moz-placeholder{
+  color:rgb(204,204,204)
 }
-.activeIndex{
-    display: block;
+
+input:-ms-input-placeholder {
+  color:rgb(204,204,204)
 }
+
+/* 点击a标签消除底色阴影 */
+
+a:active{
+	-webkit-tap-highlight-color:rgba(0,0,0,0);
+	-webkit-tap-highlight-color: transparent;
+	outline:none; 
+	background: none;
+	text-decoration: none;
+}
+
+/*清除ie浏览器中输入框的清空标志*/
+
+::-ms-clear,::-ms-reveal{display:none;}
+
+/********************************自定义按钮样式***********************/
+.mybtn,.myinput{
+	border:none;
+	outline:none;
+}
+
+/********************************自定义输入框***********************/
+
+/********************************checkbox实现公共样式***********************/
+
+.checkboxContainer{
+	display: inline-block;
+	width:0.13rem;
+	height: 0.13rem;
+	position:relative;
+	vertical-align: middle;
+}
+
+.checkboxContainer span{
+	display: inline-block;
+	position: absolute;
+	top:0;left:0;right: 0;bottom:0;
+	z-index: 2;
+}
+
+/********************************checkbox实现公共样式***********************/
+
+.footercontainer{
+	height: 0.64rem;
+}
+
+.footer{
+	display:flex;
+	justify-content: space-around;
+	align-items: center;
+	position:fixed;
+	bottom:0;
+	width:100%;
+	left:0;
+	padding:0.1rem 0;
+	background:white;
+}
+
+
+.footer dl{
+	text-align: center;
+	color:rgb(97,97,103);
+}
+
+.footer dl.chooseActive,.footer dl.chooseActive .iconfont{
+	color:#FFB534;
+}
+
+.footer dl dt img{
+	width:0.16rem;
+}
+
+.footer dl dd{
+	font-size: 0.12rem;
+}
+
+

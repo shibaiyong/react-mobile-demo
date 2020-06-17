@@ -151,7 +151,7 @@
       "jest-watch-typeahead/testname"
     ]
   },
-  "proxy": "http://t.weather.sojson.com",
+  "proxy": "http://192.168.129.149:8082",
   "babel": {
     "presets": [
       "react-app"
