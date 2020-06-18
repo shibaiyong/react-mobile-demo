@@ -22,9 +22,14 @@ class ProgressQuery extends React.Component {
         this.linkTo(e.key)
     }
 
-    tabClick(event,{index,bankId}){
+    tabClick({index,bankId}){
+
         this.setState({
             activeNum:index
+        })
+        let userId = 'e83d30aaff73435a96e086cfcf89eeef'
+        getCouponList({bankId,userId,page:1,limit:10}).then(res=>{
+            
         })
     }
 
@@ -64,7 +69,7 @@ class ProgressQuery extends React.Component {
         })
 
         this.handleGetBankList()
-        this.refs.first.click()
+        
     }
     render() {
         return (

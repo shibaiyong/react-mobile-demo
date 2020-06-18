@@ -151,7 +151,7 @@
       "jest-watch-typeahead/testname"
     ]
   },
-  "proxy": "http://192.168.129.149:8082",
+  "proxy": "https://wx.vvip333.com/",
   "babel": {
     "presets": [
       "react-app"
