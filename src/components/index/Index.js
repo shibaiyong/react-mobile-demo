@@ -1,9 +1,12 @@
 import React from 'react'
-import { uploadImage } from '../api/require.js'
+import { uploadImage, addCoupon } from '../api/require.js'
 import '../../static/style/memebercard.css'
 
-import { ImagePicker } from 'antd-mobile';
+import { ImagePicker, DatePicker, List } from 'antd-mobile';
 
+const nowTimeStamp = Date.now();
+
+const now = new Date(nowTimeStamp);
 
 class IndexCom extends React.Component {
     constructor(props) {
@@ -12,18 +15,16 @@ class IndexCom extends React.Component {
             middleData: [0],
             alertIsShow:false,
             files:'',
-            exchangecode:''
+            code:'',
+            endTime:now,
+            img:'',
+            userId:'e83d30aaff73435a96e086cfcf89eeef'
         }
-        this.handleClick = this.handleClick.bind(this)
-        this.onChange = this.onChange.bind(this)
+        this.imgChange = this.imgChange.bind(this)
     }
 
     linkTo(route, data) {
         this.props.history.push(route)
-    }
-
-    handleClick(e) {
-        this.linkTo(e.key);
     }
 
     hideAlert(status){
@@ -38,19 +39,28 @@ class IndexCom extends React.Component {
         } 
     }
 
-    onChange(files, type, index){
+    imgChange(files, type, index){
         let formData = new FormData();
         let params = formData.append("files", files[0].file);
-
         uploadImage(params).then(res=>{
             console.log(res)
         })
 
     }
 
-    handleChange(event){ 
+    codeChange(event){
         let e = event.nativeEvent
         this.setState({exchangecode:e.target.value})
+    }
+
+    addCoupon(){
+
+        const {endTime, code, img, userId} = this.state
+
+        addCoupon({endTime, code, img}).then( res=> {
+            console.log(res)
+        })
+
     }
     
     componentDidMount() {
@@ -75,9 +85,15 @@ class IndexCom extends React.Component {
                         <li className="inputlist">
                             <span>券码截图：</span>
                             <input type="text" className=""/>
-                            <ImagePicker onChange={this.onChange} length={1}/>
+                            <ImagePicker onChange={this.imgChange} length={1}/>
                         </li>
-                        <li className="inputlist"><span>兑换码：</span><input type="text" className="" value={this.state.exhangecode} onChange={this.handleChange.bind(this)}/></li>
+                        <li className="inputlist"><span>兑换码：</span><input type="text" className="" value={this.state.code} onChange={this.codeChange.bind(this)}/></li>
+
+                        <li className="inputlist">
+                            <DatePicker mode="date" title="日期" extra="Optional" value={this.state.endTime} onChange={endTime => this.setState({ endTime })}>
+                                <List.Item arrow="horizontal">有效日期:</List.Item>
+                            </DatePicker>
+                        </li>
                         <li><button type="button" className="mybtn1"><span className="mui-icon mui-icon-plus"></span>批量上传</button></li>
                     </ul>
                 </div>

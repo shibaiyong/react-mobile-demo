@@ -7,9 +7,6 @@
     padding:0;
 }
 
-/* .uploadarea .inputlist .am-image-picker-upload-btn{
-    border:none;
-} */
 .uploadarea .inputlist .am-flexbox-item input{
     width:100%;
 }
@@ -22,10 +19,14 @@
     opacity: 0;
 }
 
-/* .am-image-picker-list .am-flexbox{
-    height: 0.4rem;
-} */
+.uploadarea .am-list-item{
+    padding-left:0;
+}
 
+.uploadarea .am-list-item .am-list-content{
+    font-size: 0.16rem;
+    color: #b5b6b8;
+}
 
 .vipcard{
     padding:0.2rem 0.15rem;
@@ -164,7 +165,7 @@
     background:#fbfcfe;
     color:#b5b6b8;
 }
-.uploadarea li:nth-child(5){
+.uploadarea li:nth-child(6){
     text-align: center;
     margin-top:0.3rem;
 }

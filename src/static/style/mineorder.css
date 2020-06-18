@@ -74,9 +74,20 @@ body{
 .mineorder .reason{
     font-size: 0.14rem;
     color:#a8644f;
-    padding-top:0.1rem;
-    margin-top:0.1rem;
+		padding-top:0.1rem;
+		padding-left:0.1rem;
+		padding-right:0.1rem;
     border-top:1px solid #eee;
+}
+
+.mineorder .remove{
+	color:#2583ec;
+	text-align: right;
+	font-size: 0.12rem;
+	padding-top:0.1rem;
+	padding-left:0.1rem;
+	padding-right:0.1rem;
+	border-top:1px solid #eee;
 }
 
 .mineorder .bankcardinfo{
@@ -88,7 +99,6 @@ body{
     margin: 0;
     margin-top:0;
     border-radius: 6px;
-    box-shadow: #eee 0 0 0.1rem 0.05rem;
     display: flex;
     align-items: center;
 }
@@ -96,6 +106,7 @@ body{
 	width:0.66rem;
 	height:0.66rem;
 	margin-right: 0.1rem;
+	display: grid;
 }
 
 .mineorder .bankcardinfo ul li:nth-child(2),.bankcardinfo ul li:nth-child(3){
@@ -106,7 +117,7 @@ body{
 
 
 .mineorder .bankcardinfo ul{
-	width:3.3rem;
+	width:3.2rem;
 }
 
 .mineorder .bankcardinfo dl dd img{
