@@ -1,3 +1,32 @@
+.am-flexbox .am-flexbox-item{
+    width:100%;
+    height: 0.4rem;
+}
+.uploadarea .inputlist .am-image-picker-list{
+    margin:0;
+    padding:0;
+}
+
+/* .uploadarea .inputlist .am-image-picker-upload-btn{
+    border:none;
+} */
+.uploadarea .inputlist .am-flexbox-item input{
+    width:100%;
+}
+
+.uploadarea .inputlist .am-image-picker{
+    position: absolute;
+    top:0;
+    right:0;
+    width:70%;
+    opacity: 0;
+}
+
+/* .am-image-picker-list .am-flexbox{
+    height: 0.4rem;
+} */
+
+
 .vipcard{
     padding:0.2rem 0.15rem;
     box-sizing: border-box;
@@ -98,9 +127,10 @@
     margin-top:0.15rem;
     padding-left:0.1rem;
     background:white;
+    position:relative;
 }
 
-.uploadarea ul :nth-child(3){
+.uploadarea ul li:nth-child(3){
     margin-top:0.3rem;
 }
 

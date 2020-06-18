@@ -10,10 +10,13 @@ class ProgressQuery extends React.Component {
             middleData: [0],
             banks:[],
             activeNum:0,
-            bankEditAble:true
+            bankEditAble:true,
+            bankId:'',
+            userId:'e83d30aaff73435a96e086cfcf89eeef'
         }
         this.bankEditAble
         this.handleClick = this.handleClick.bind(this)
+        this.handleSearchCouponList = this.handleSearchCouponList.bind(this)
     }
     linkTo(route, data) {
         this.props.history.push(route)
@@ -25,9 +28,10 @@ class ProgressQuery extends React.Component {
     tabClick({index,bankId}){
 
         this.setState({
-            activeNum:index
+            activeNum:index,
+            bankId
         })
-        let userId = 'e83d30aaff73435a96e086cfcf89eeef'
+        let userId = this.state.userId
         getCouponList({bankId,userId,page:1,limit:10}).then(res=>{
             
         })
@@ -55,6 +59,18 @@ class ProgressQuery extends React.Component {
 
     handleUpdateUserBankList({status, userId, bankId}){
         updateUserBankList({status, userId, bankId}).then(res=>{
+            console.log(res)
+        })
+    }
+
+    handleSearchCouponList(){
+
+        let name = this.searchtext.value
+        let bankId = this.state.bankId
+        let userId = this.state.userId
+        let page = 1
+        let limit = 10
+        searchCouponList({bankId,name,userId,page,limit}).then(res=>{
             console.log(res)
         })
     }
@@ -119,14 +135,14 @@ class ProgressQuery extends React.Component {
                 <div className="mui-inner-wrap">
                     <div className="progressquery">
                         <div className="searcharea">
-                            <input type="text" className="search" placeholder="输入商品名称、银行等" />
+                            <input type="text" ref={input => this.searchtext = input} onBlur={this.handleSearchCouponList} className="search" placeholder="输入商品名称、银行等" />
                         </div>
                     <div className="cardstatuscontainer">
                         <div className="cardstatus">
                             {
                                 this.state.banks.map((item, index) => {
                                     return (
-                                        <span key={item.id} refs={index==0?'first':''} onClick={this.tabClick.bind(this,{index,bankId:item.id})} className={this.state.activeNum == index ? "bottomline" : ""}>{item.displayName}</span>
+                                        <span key={item.id} ref={index==0?'first':''} onClick={this.tabClick.bind(this,{index,bankId:item.id})} className={this.state.activeNum == index ? "bottomline" : ""}>{item.displayName}</span>
                                     )
                                 })
                             }

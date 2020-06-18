@@ -8,6 +8,7 @@ import IndexCom from '../components/index/Index'
 import ProgressQuery from '../components/query/ProgressQuery'
 import BuyInfo from '../components/buyinfo/BuyInfo'
 import MineOrder from '../components/mineorder/MineOrder'
+import PersonalCenter from '../components/personalcenter/PersonalCenter'
 
 import App from '../components/app/APP'
 
@@ -32,6 +33,11 @@ const routerList = [
     component: MineOrder,
     auth: true,
     title:'我的订单'
+  },{
+    path: '/personalcenter',
+    component: PersonalCenter,
+    auth: true,
+    title:'个人中心'
   }
 ]
 

@@ -26,3 +26,9 @@ export const searchCouponList = params => {
     return axiosInstance.get("/wx/ruielife/coupon/listByFilter",{params:params}).then(res => res.data)
 
 }
+
+//上传优惠券
+
+export const uploadImage = params => {
+    return axiosInstance.post("/wx/storage/upload",params).then(res => res.data)
+}

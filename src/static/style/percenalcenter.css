@@ -1,0 +1,188 @@
+.agentcenter{
+	padding:0 0.15rem;
+    box-sizing: border-box;
+    background: #f7f7f7;
+}
+
+.userinfocontainer{
+    background:url(../img/bgcard@2x.jpg) no-repeat center center;
+    margin:0 -0.15rem;
+    background-size:100% 100%;
+    overflow:hidden;
+}
+
+.userinfocontainer .wallet{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:0.15rem;
+    box-sizing: border-box;
+    background:#434343;
+    color:#b8aaa1;
+    padding-bottom: 0.4rem;
+    border-radius: 0.2rem;
+    margin: 0 0.15rem;
+    margin-bottom: -0.25rem;
+
+}
+
+.agentcenter .userinfo{
+	display: flex;
+	align-items: center;
+    padding:0.2rem;
+    box-sizing: border-box;
+
+}
+
+.agentcenter .userinfo .message{
+    position: relative;
+    margin-right: 0.1rem;
+}
+.agentcenter .userinfo .message span{
+	display: inline-block;
+	position: absolute;
+	top:0;right: -0.12rem;
+	font-size: 0.1rem;
+	color:white;
+	background:#eb4949;
+	padding:0 0.04rem;
+	box-sizing: border-box;
+	border-radius: 0.06rem;
+	text-align: center;
+}
+.agentcenter .userinfo .message img{
+	width:0.5rem;
+}
+.agentcenter .userinfo li img{
+	width:0.16rem;
+	vertical-align: middle;
+	margin-right: 0.1rem;
+}
+
+.agentcenter .userinfo li span{
+    vertical-align: middle;
+    color:white;
+}
+
+.agentcenter .userinfo li+li{
+	margin-top:0.1rem;
+}
+
+.agentcenter .userinfo li:nth-child(1) span{
+	font-size: 0.18rem;
+}
+
+.agentcenter .userinfo li:nth-child(1) img.partnertag{
+	width:0.5rem;
+	margin-left:0.02rem;
+}
+
+.agentcenter .userinfo li:nth-child(2) span{
+	font-size: 0.15rem;
+}
+
+.agentcenter .carddata{
+	background:url(../img/bgcard@2x.jpg) no-repeat center center;
+	background-size: 100% 100%;
+	color:white;
+	padding:0.15rem;
+	box-sizing: border-box;
+	border-radius: 0.08rem;
+	margin: 0.25rem 0;
+}
+.agentcenter .carddata ul li{
+	display:flex;
+	justify-content: space-between;
+	align-items: center;
+	font-size: 0.12rem;
+}
+
+.agentcenter .carddata ul li:nth-child(2){
+	margin: 0.15rem 0;
+}
+
+.agentcenter .carddata ul li .money{
+	font-size: 0.3rem;
+}
+
+.agentcenter .carddata ul li .withdraw{
+	display: inline-block;
+	font-size: 0.15rem;
+	width:0.6rem;
+	height: 0.25rem;
+	line-height: 0.25rem;
+	text-align: center;
+	background:#ffa800;
+	border-radius: 0.12rem;
+}
+
+.agentcenter .carddata ul li .sumMoney span:nth-child(2){
+	font-size: 0.15rem;
+	margin-left:0.07rem;
+}
+
+.agentcenter .carddata .detail span{
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.agentcenter .carddata .detail img{
+	width:0.07rem;
+	margin-left:0.05rem;
+}
+
+
+.agentcenter .menu{
+	display:flex;
+	
+	align-items: center;
+	font-size: 0.14rem;
+	text-align: center;
+	color:white;
+    margin-bottom: 0.12rem;
+    padding:0.2rem 0;
+}
+
+.agentcenter .myservice{
+    color:#979797;
+    flex-wrap: wrap;
+}
+.agentcenter .myservice dl:nth-child(n+5){
+    padding-top:0.2rem;
+}
+.agentcenter .menu dl{
+    width:25%;
+}
+.agentcenter .menu dl dt{
+	margin-bottom:0.06rem;
+}
+
+
+.agentcenter .linebar{
+		height:0.1rem;
+		background:#f7f7f7;
+		margin:0 -0.2rem;
+}
+
+.agentcenter .menu img{
+	width:0.32rem;
+	margin-bottom: 0.1rem;
+}
+
+.item-list{
+    background:white;
+    padding-top:0.15rem;
+    border-radius: 0.06rem;
+    box-shadow: 0 0 0.1rem#ddd;
+    margin-top:0.2rem;
+}
+
+
+
+.item-list h3{
+    font-size: 0.14rem;
+    padding-left:0.2rem;
+    box-sizing: border-box;
+    
+}
+

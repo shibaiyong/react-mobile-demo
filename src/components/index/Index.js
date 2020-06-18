@@ -1,5 +1,5 @@
 import React from 'react'
-import { getWeather } from '../api/require.js'
+import { uploadImage } from '../api/require.js'
 import '../../static/style/memebercard.css'
 
 import { ImagePicker } from 'antd-mobile';
@@ -10,16 +10,22 @@ class IndexCom extends React.Component {
         super(props)
         this.state = {
             middleData: [0],
-            alertIsShow:true
+            alertIsShow:false,
+            files:'',
+            exchangecode:''
         }
         this.handleClick = this.handleClick.bind(this)
+        this.onChange = this.onChange.bind(this)
     }
+
     linkTo(route, data) {
         this.props.history.push(route)
     }
+
     handleClick(e) {
         this.linkTo(e.key);
     }
+
     hideAlert(status){
         if(status === 'show'){
             this.setState({
@@ -29,14 +35,28 @@ class IndexCom extends React.Component {
             this.setState({
                 alertIsShow:false
             })
-        }
-        
+        } 
     }
-    componentDidMount() {
-        getWeather().then(res => {
+
+    onChange(files, type, index){
+        let formData = new FormData();
+        let params = formData.append("files", files[0].file);
+
+        uploadImage(params).then(res=>{
             console.log(res)
         })
+
     }
+
+    handleChange(event){ 
+        let e = event.nativeEvent
+        this.setState({exchangecode:e.target.value})
+    }
+    
+    componentDidMount() {
+        
+    }
+
     render() {
         return (
             <div className='index'>
@@ -47,14 +67,17 @@ class IndexCom extends React.Component {
                     </ul>
                 </div>
                 <div className="uploadarea">
-                    <ImagePicker/>
                     <ul>
                         
                         <li><button type="button" className="mybtn"><span className="mui-icon mui-icon-upload"></span>批量上传</button></li>
                         <li className="ticketlist"><div><strong>券1</strong><span>上传说明</span></div><span className="mui-icon mui-icon-trash"></span></li>
 
-                        <li className="inputlist"><span>券码截图：</span><input type="text" className="" /></li>
-                        <li className="inputlist"><span>兑换码：</span><input type="text" className="" /></li>
+                        <li className="inputlist">
+                            <span>券码截图：</span>
+                            <input type="text" className=""/>
+                            <ImagePicker onChange={this.onChange} length={1}/>
+                        </li>
+                        <li className="inputlist"><span>兑换码：</span><input type="text" className="" value={this.state.exhangecode} onChange={this.handleChange.bind(this)}/></li>
                         <li><button type="button" className="mybtn1"><span className="mui-icon mui-icon-plus"></span>批量上传</button></li>
                     </ul>
                 </div>
