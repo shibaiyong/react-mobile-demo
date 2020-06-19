@@ -1,5 +1,5 @@
 import React from 'react'
-import { uploadImage, addCoupon } from '../api/require.js'
+import { uploadImage, addCoupon,formatDate } from '../api/require.js'
 import '../../static/style/memebercard.css'
 
 import { ImagePicker, DatePicker, List } from 'antd-mobile';
@@ -126,7 +126,7 @@ class IndexCom extends React.Component {
                             <li className="inputlist"><span>兑换码：</span><input type="text" className="" onChange={this.codeChange.bind(this)}/></li>
     
                             <li className="inputlist">
-                                <DatePicker mode="date" title="日期" extra="请选择日期" value={''} onChange={ this.dateChange.bind(this)}>
+                                <DatePicker mode="date" title="日期" extra="请选择日期" value={this.state.couponForm.endTime} onChange={ this.dateChange.bind(this)}>
                                     <List.Item arrow="horizontal">有效日期:</List.Item>
                                 </DatePicker>
                             </li>
