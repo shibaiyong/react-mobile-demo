@@ -14,7 +14,7 @@ import App from '../components/app/APP'
 
 const routerList = [
   {
-    path: '/',
+    path: '/index',
     component: IndexCom,
     auth: true,
     title:'首页'

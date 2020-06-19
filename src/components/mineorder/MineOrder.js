@@ -27,7 +27,9 @@ class MineOrder extends React.Component {
 
     }
     linkTo(route, data) {
+
         this.props.history.push(route)
+        
     }
 
     updateSailCoupon(){

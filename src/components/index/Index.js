@@ -12,15 +12,21 @@ class IndexCom extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            middleData: [0],
+            uploadAreas: [1],
             alertIsShow:false,
+            couponForm:{
+                code:'',
+                endTime:now,
+                img:'',
+            },
             files:'',
-            code:'',
-            endTime:now,
-            img:'',
-            userId:'e83d30aaff73435a96e086cfcf89eeef'
+            userId:'e83d30aaff73435a96e086cfcf89eeef',
+            couponItem:[]
         }
         this.imgChange = this.imgChange.bind(this)
+        this.addUploadArea = this.addUploadArea.bind(this)
+
+        this.deleteUploadArea = this.deleteUploadArea.bind(this)
     }
 
     linkTo(route, data) {
@@ -38,7 +44,24 @@ class IndexCom extends React.Component {
             })
         } 
     }
+    addUploadArea(){
+        
+        this.state.couponItem.push(this.state.couponForm)
+        console.log(this.state.couponItem)
+        this.setState({
+            couponItem:this.state.couponItem,
+            uploadAreas:this.state.uploadAreas.concat(1)
+        })
+    }
 
+    deleteUploadArea(index){
+
+        this.state.uploadAreas.splice(index,1)
+        this.state.couponItem.splice(index,1)
+        console.log(this.state.couponItem)
+        this.setState({uploadAreas:this.state.uploadAreas})
+
+    }
     imgChange(files, type, index){
         let formData = new FormData();
         let params = formData.append("files", files[0].file);
@@ -48,54 +71,69 @@ class IndexCom extends React.Component {
 
     }
 
+    dateChange(date){
+      
+        let newObject = Object.assign({},this.state.couponForm,{endTime:date})
+        this.setState({couponForm:newObject})
+    }
+
     codeChange(event){
         let e = event.nativeEvent
-        this.setState({exchangecode:e.target.value})
+        let newObject = Object.assign({},this.state.couponForm,{code:e.target.value})
+        this.setState({couponForm:newObject})
     }
 
     addCoupon(){
 
         const {endTime, code, img, userId} = this.state
-
-        addCoupon({endTime, code, img}).then( res=> {
-            console.log(res)
-        })
+        this.state.couponItem.push(this.state.couponForm)
+        console.log(this.state.couponItem)
 
     }
+
     
     componentDidMount() {
-        
+        console.log(this.props.location)
     }
 
     render() {
+        const { uploadAreas, alertIsShow } = this.state
+        const {price, details, desc} = this.props.location.state
         return (
             <div className='index'>
                 <div className="vipcard">
                     <ul>
-                        <li><div><span>百度网盘</span><span>&nbsp;|&nbsp;</span><span>超级会员卡</span></div><strong>&#xA5;88.8</strong></li>
-                        <li><span>信用卡值越高，出售价格越高</span></li>
+                        <li><div>{desc}</div><strong>&#xA5;{price}</strong></li>
+                        <li><span>{details}</span></li>
                     </ul>
                 </div>
                 <div className="uploadarea">
-                    <ul>
-                        
-                        <li><button type="button" className="mybtn"><span className="mui-icon mui-icon-upload"></span>批量上传</button></li>
-                        <li className="ticketlist"><div><strong>券1</strong><span>上传说明</span></div><span className="mui-icon mui-icon-trash"></span></li>
-
-                        <li className="inputlist">
-                            <span>券码截图：</span>
-                            <input type="text" className=""/>
-                            <ImagePicker onChange={this.imgChange} length={1}/>
-                        </li>
-                        <li className="inputlist"><span>兑换码：</span><input type="text" className="" value={this.state.code} onChange={this.codeChange.bind(this)}/></li>
-
-                        <li className="inputlist">
-                            <DatePicker mode="date" title="日期" extra="Optional" value={this.state.endTime} onChange={endTime => this.setState({ endTime })}>
-                                <List.Item arrow="horizontal">有效日期:</List.Item>
-                            </DatePicker>
-                        </li>
-                        <li><button type="button" className="mybtn1"><span className="mui-icon mui-icon-plus"></span>批量上传</button></li>
-                    </ul>
+                    {/* <div style={{textAlign:'right'}}><button type="button" className="mybtn"><span className="mui-icon mui-icon-upload"></span>批量上传</button></div> */}
+                    {
+                        uploadAreas.map((item, index)=>{
+                            return <ul key={index}>
+                            <li></li>
+                            <li className="ticketlist">
+                                <div><strong>券{index+1}</strong><span>上传说明</span></div>
+                                {index==0?'':<span className="mui-icon mui-icon-trash" onClick={this.deleteUploadArea.bind(index+1)}></span>}
+                            </li>
+    
+                            <li className="inputlist">
+                                <span>券码截图：</span>
+                                <input type="text" className=""/>
+                                <ImagePicker onChange={this.imgChange} length={1}/>
+                            </li>
+                            <li className="inputlist"><span>兑换码：</span><input type="text" className="" onChange={this.codeChange.bind(this)}/></li>
+    
+                            <li className="inputlist">
+                                <DatePicker mode="date" title="日期" extra="请选择日期" value={''} onChange={ this.dateChange.bind(this)}>
+                                    <List.Item arrow="horizontal">有效日期:</List.Item>
+                                </DatePicker>
+                            </li>
+                            <li></li>
+                        </ul>})
+                    }
+                    <div style={{textAlign:'center'}}><button type="button" className="mybtn1" onClick={this.addUploadArea}><span className="mui-icon mui-icon-plus"></span>批量上传</button></div>
                 </div>
 
                 <div className="tipcontent">
@@ -115,12 +153,12 @@ class IndexCom extends React.Component {
 
                 <div className="buttonwrapper">
                     <div className="buttoncontainer">
-                        <span>联系客服</span><span onClick={ this.hideAlert.bind(this,'show') }>立即发布</span>
+                        <span>联系客服</span><span onClick={ this.addCoupon.bind(this) }>立即发布</span>
                     </div>
                 </div>
 
                 {
-                    this.state.alertIsShow && (<div className="alertmodelcontainer">
+                    alertIsShow && (<div className="alertmodelcontainer">
                         <div className="alertModel">
                             <div className="alert-body">
                                 <div className="alert_title">售前确认</div>

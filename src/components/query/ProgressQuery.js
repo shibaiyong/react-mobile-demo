@@ -9,17 +9,18 @@ class ProgressQuery extends React.Component {
         this.state = {
             middleData: [0],
             banks:[],
+            userBanks:[],
+            coupons:[],
             activeNum:0,
             bankEditAble:true,
             bankId:'',
             userId:'e83d30aaff73435a96e086cfcf89eeef'
         }
-        this.bankEditAble
         this.handleClick = this.handleClick.bind(this)
         this.handleSearchCouponList = this.handleSearchCouponList.bind(this)
     }
-    linkTo(route, data) {
-        this.props.history.push(route)
+    linkTo(route, id, desc, details, price) {
+        this.props.history.push({pathname:route,state:{id, desc, details, price}})
     }
     handleClick(e) {
         this.linkTo(e.key)
@@ -42,8 +43,15 @@ class ProgressQuery extends React.Component {
     }
 
     handleGetCouponList(){
-        getCouponList().then(res=>{
-
+        let userId = this.state.userId
+        getCouponList({userId,page:1,limit:10}).then(res=>{
+            if( res && res.errno == 0 ){
+                this.setState({
+                    banks:res.data.banks,
+                    userBanks:res.data.userBanks,
+                    coupons:res.data.coupons
+                })
+            }
         })
     }
 
@@ -57,7 +65,8 @@ class ProgressQuery extends React.Component {
         })
     }
 
-    handleUpdateUserBankList({status, userId, bankId}){
+    handleUpdateUserBankList({status, bankId}){
+        const userId = this.state.userId
         updateUserBankList({status, userId, bankId}).then(res=>{
             console.log(res)
         })
@@ -84,8 +93,7 @@ class ProgressQuery extends React.Component {
             mui('.mui-off-canvas-wrap').offCanvas('show');
         })
 
-        this.handleGetBankList()
-        
+        this.handleGetCouponList()
     }
     render() {
         return (
@@ -104,7 +112,7 @@ class ProgressQuery extends React.Component {
                             {
                                 this.state.bankEditAble ? (<div className="content">
                                 {
-                                    this.state.banks.map((item, index) => {
+                                    this.state.userBanks.map((item, index) => {
                                         return (
                                             <span key={item.id}>{item.displayName}</span>
                                         )
@@ -113,7 +121,7 @@ class ProgressQuery extends React.Component {
                                 
                             </div>) : (<div className="content">
                                 {
-                                    this.state.banks.map((item, index) => {
+                                    this.state.userBanks.map((item, index) => {
                                         return (
                                             <span key={item.id}>{item.displayName}<label className="mui-icon mui-icon-minus" onClick={this.handleUpdateUserBankList.bind(this,{status:2,bankId:item.id,userId:'23124324'})}></label></span>
                                         )
@@ -126,7 +134,17 @@ class ProgressQuery extends React.Component {
                                 <span>更多</span>
                             </div>
                             <div className="content">
-                                <span className="addbtn"><strong className="mui-icon mui-icon-plusempty"></strong><i>招商</i></span>
+
+                            {
+                                    this.state.banks.map((item, index) => {
+                                        return (
+                                            <span className="addbtn" key={item.id} onClick={this.handleUpdateUserBankList.bind(this,{status:1,bankId:item.id})}><strong className="mui-icon mui-icon-plusempty"></strong><label>{item.displayName}</label></span>
+                                        )
+                                        
+                                    })
+                                }
+
+                                
                                 <span className="addbtn"><strong className="mui-icon mui-icon-plusempty"></strong><i>中信</i></span>
                             </div>
                         </div>
@@ -140,7 +158,7 @@ class ProgressQuery extends React.Component {
                     <div className="cardstatuscontainer">
                         <div className="cardstatus">
                             {
-                                this.state.banks.map((item, index) => {
+                                this.state.userBanks.map((item, index) => {
                                     return (
                                         <span key={item.id} ref={index==0?'first':''} onClick={this.tabClick.bind(this,{index,bankId:item.id})} className={this.state.activeNum == index ? "bottomline" : ""}>{item.displayName}</span>
                                     )
@@ -151,20 +169,29 @@ class ProgressQuery extends React.Component {
                         </div>
                     </div>
                         <div className="statuslist">
-                            <div className="bankcardinfo">
-                                <img src={require('../../static/img/didilogo.png')}/>
-                                <ul>
-                                    <li><span>滴滴&nbsp;</span><span>|</span><span>&nbsp;快车&#x2022;50元拆分券</span></li>
-                                    <li>
-                                        <div className="price">&#xA5;17.8</div>
-                                        <div className="love"><span className="mui-icon mui-icon-star"></span>&nbsp;<span>2</span></div>
-                                        <div className="ordernum">
-                                            <span>成交：</span>
-                                            <span>8888单</span>
+
+                            
+                            {
+                                this.state.coupons.map((item, index) => {
+                                    return (
+                                        <div key={item.id} className="bankcardinfo" onClick={ this.linkTo.bind(this,'index',item.id,item.desc,item.details,item.price) }>
+                                            <img src={require('../../static/img/didilogo.png')}/>
+                                            <ul>
+                                                <li>{item.desc}</li>
+                                                <li>
+                                                    <div className="price">&#xA5;{item.price}</div>
+                                                    <div className="love"><span className="mui-icon mui-icon-star"></span>&nbsp;<span>2</span></div>
+                                                    <div className="ordernum">
+                                                        <span>成交：</span>
+                                                        <span>{item.totalDeal}单</span>
+                                                    </div>
+                                                </li>
+                                            </ul>
                                         </div>
-                                    </li>
-                                </ul>
-						    </div>
+                                    )
+                                })
+                            }
+                            
                         </div>
                     </div>
                 </div>
