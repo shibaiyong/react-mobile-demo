@@ -25,8 +25,6 @@ class IndexCom extends React.Component {
         }
         this.imgChange = this.imgChange.bind(this)
         this.addUploadArea = this.addUploadArea.bind(this)
-
-        this.deleteUploadArea = this.deleteUploadArea.bind(this)
     }
 
     linkTo(route, data) {
@@ -71,9 +69,10 @@ class IndexCom extends React.Component {
 
     }
 
-    dateChange(date){
-      
+    dateChange(date,event){
+      console.log(event)
         let newObject = Object.assign({},this.state.couponForm,{endTime:date})
+        
         this.setState({couponForm:newObject})
     }
 
@@ -115,7 +114,7 @@ class IndexCom extends React.Component {
                             <li></li>
                             <li className="ticketlist">
                                 <div><strong>券{index+1}</strong><span>上传说明</span></div>
-                                {index==0?'':<span className="mui-icon mui-icon-trash" onClick={this.deleteUploadArea.bind(index+1)}></span>}
+                                {index==0?'':<span className="mui-icon mui-icon-trash" onClick={this.deleteUploadArea.bind(this,index)}></span>}
                             </li>
     
                             <li className="inputlist">
@@ -126,7 +125,7 @@ class IndexCom extends React.Component {
                             <li className="inputlist"><span>兑换码：</span><input type="text" className="" onChange={this.codeChange.bind(this)}/></li>
     
                             <li className="inputlist">
-                                <DatePicker mode="date" title="日期" extra="请选择日期" value={this.state.couponForm.endTime} onChange={ this.dateChange.bind(this)}>
+                                <DatePicker mode="date" title="日期" ref="datatime" extra="请选择日期" value={this.state.couponForm.endTime} onChange={ this.dateChange.bind(this)}>
                                     <List.Item arrow="horizontal">有效日期:</List.Item>
                                 </DatePicker>
                             </li>
