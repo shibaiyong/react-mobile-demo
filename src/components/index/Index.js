@@ -21,7 +21,9 @@ class IndexCom extends React.Component {
             },
             files:'',
             userId:'e83d30aaff73435a96e086cfcf89eeef',
-            couponItem:[]
+            couponItem:[],
+            AfterDel:false,
+            AfterSubmit:false
         }
         this.imgChange = this.imgChange.bind(this)
         this.addUploadArea = this.addUploadArea.bind(this)
@@ -45,6 +47,7 @@ class IndexCom extends React.Component {
     addUploadArea(){
 
         if(!this.state.couponForm.code&&!this.state.AfterSubmit){
+            console.log(11111)
             return false
         }
         
@@ -60,22 +63,23 @@ class IndexCom extends React.Component {
                 endTime:now,
                 img:''
             },
-            AfterSubmit:false
+            AfterDel:false
         })
         
     }
 
     deleteUploadArea(index){
-
         this.state.uploadAreas.splice(index,1)
         this.state.couponItem.splice(index,1)
-        console.log(this.state.couponItem)
-        this.setState({uploadAreas:this.state.uploadAreas})
+        this.setState({
+            uploadAreas:this.state.uploadAreas,
+            AfterDel:true
+        })
 
     }
     imgChange(files, type, index){
-        let formData = new FormData();
-        let params = formData.append("files", files[0].file);
+        let formData = new FormData()
+        let params = formData.append("files", files[0].file)
         uploadImage(params).then(res=>{
             console.log(res)
         })
@@ -83,7 +87,6 @@ class IndexCom extends React.Component {
     }
 
     dateChange(event,date){
-        console.log(date)
         let newObject = Object.assign({},this.state.couponForm,{endTime:date})
         this.setState({couponForm:newObject})
     }
@@ -100,7 +103,9 @@ class IndexCom extends React.Component {
             return false;
         }
 
-        this.state.couponItem.push(this.state.couponForm)
+        if(!this.state.AfterDel){
+            this.state.couponItem.push(this.state.couponForm)
+        }
 
         this.setState({
             couponItem:this.state.couponItem,
@@ -109,15 +114,10 @@ class IndexCom extends React.Component {
                 endTime:now,
                 img:''
             },
-            AfterSubmit:true
+            AfterSubmit:true,
+            AfterDel:false
             
         })
-        
-        location.reload();
-        
-
-        console.log(this.state.couponItem)
-
     }
 
     
