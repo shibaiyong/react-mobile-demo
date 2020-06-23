@@ -1,12 +1,12 @@
+
 import React from 'react'
 import { uploadImage, addCoupon,formatDate } from '../api/require.js'
 import '../../static/style/memebercard.css'
+import { ImagePicker, DatePicker, List } from 'antd-mobile'
 
-import { ImagePicker, DatePicker, List } from 'antd-mobile';
+const nowTimeStamp = Date.now()
 
-const nowTimeStamp = Date.now();
-
-const now = new Date(nowTimeStamp);
+const now = new Date(nowTimeStamp)
 
 class IndexCom extends React.Component {
     constructor(props) {
@@ -17,7 +17,7 @@ class IndexCom extends React.Component {
             couponForm:{
                 code:'',
                 endTime:now,
-                img:'',
+                img:''
             },
             files:'',
             userId:'e83d30aaff73435a96e086cfcf89eeef',
@@ -43,13 +43,26 @@ class IndexCom extends React.Component {
         } 
     }
     addUploadArea(){
+
+        if(!this.state.couponForm.code&&!this.state.AfterSubmit){
+            return false
+        }
         
-        this.state.couponItem.push(this.state.couponForm)
-        console.log(this.state.couponItem)
+        if(!this.state.AfterSubmit){
+            this.state.couponItem.push(this.state.couponForm)
+        }
+        
         this.setState({
             couponItem:this.state.couponItem,
-            uploadAreas:this.state.uploadAreas.concat(1)
+            uploadAreas:this.state.uploadAreas.concat(1),
+            couponForm:{
+                code:'',
+                endTime:now,
+                img:''
+            },
+            AfterSubmit:false
         })
+        
     }
 
     deleteUploadArea(index){
@@ -70,9 +83,8 @@ class IndexCom extends React.Component {
     }
 
     dateChange(date,event){
-      console.log(event)
+        console.log(date)
         let newObject = Object.assign({},this.state.couponForm,{endTime:date})
-        
         this.setState({couponForm:newObject})
     }
 
@@ -84,8 +96,26 @@ class IndexCom extends React.Component {
 
     addCoupon(){
 
-        const {endTime, code, img, userId} = this.state
+        if(!this.state.couponForm.code){
+            return false;
+        }
+
         this.state.couponItem.push(this.state.couponForm)
+
+        this.setState({
+            couponItem:this.state.couponItem,
+            couponForm:{
+                code:'',
+                endTime:now,
+                img:''
+            },
+            AfterSubmit:true
+            
+        })
+        
+        location.reload();
+        
+
         console.log(this.state.couponItem)
 
     }
@@ -125,7 +155,7 @@ class IndexCom extends React.Component {
                             <li className="inputlist"><span>兑换码：</span><input type="text" className="" onChange={this.codeChange.bind(this)}/></li>
     
                             <li className="inputlist">
-                                <DatePicker mode="date" title="日期" ref="datatime" extra="请选择日期" value={this.state.couponForm.endTime} onChange={ this.dateChange.bind(this)}>
+                                <DatePicker mode="date" title="日期" ref="datatime" extra="请选择日期" value={this.state.couponForm.endTime} onChange={ this.dateChange.bind(this,event)}>
                                     <List.Item arrow="horizontal">有效日期:</List.Item>
                                 </DatePicker>
                             </li>
