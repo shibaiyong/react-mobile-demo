@@ -82,7 +82,7 @@ class IndexCom extends React.Component {
 
     }
 
-    dateChange(date,event){
+    dateChange(event,date){
         console.log(date)
         let newObject = Object.assign({},this.state.couponForm,{endTime:date})
         this.setState({couponForm:newObject})
