@@ -78,9 +78,11 @@ class IndexCom extends React.Component {
 
     }
     imgChange(files, type, index){
+        
         let formData = new FormData()
-        let params = formData.append("files", files[0].file)
-        uploadImage(params).then(res=>{
+        
+        formData.append("files", files[0].file)
+        uploadImage(formData).then(res=>{
             console.log(res)
         })
 
