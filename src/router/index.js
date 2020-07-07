@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, BrowserRouter, Switch, Redirect } from 'react-router-dom'
+import { Route, BrowserRouter, Switch, Redirect, HashRouter } from 'react-router-dom'
 import { Provider } from 'react-redux' // react和redux连接的桥梁，就是这个Provider
 
 import Store from '../redux/store.js'
@@ -9,8 +9,12 @@ import ProgressQuery from '../components/query/ProgressQuery'
 import BuyInfo from '../components/buyinfo/BuyInfo'
 import MineOrder from '../components/mineorder/MineOrder'
 import PersonalCenter from '../components/personalcenter/PersonalCenter'
+import Login from '../components/logins/Login'
+import Register from '../components/logins/Register'
+
 
 import App from '../components/app/APP'
+import { Mine } from '../components/mine/Mine.js';
 
 const routerList = [
   {
@@ -38,6 +42,18 @@ const routerList = [
     component: PersonalCenter,
     auth: true,
     title:'个人中心'
+  },{
+    path: '/mine/login',
+    component: Login,
+    ParentComponent:Mine,
+    auth: true,
+    title:'登录'
+  },{
+    path: '/mine/register',
+    component: Register,
+    ParentComponent:Mine,
+    auth: true,
+    title:'注册'
   }
 ]
 
@@ -78,7 +94,7 @@ class RouterBefore extends React.Component{
 }
 
 const Root = () => (
-  <BrowserRouter>
+  <HashRouter>
     <Provider store={Store}>
       <App>
         <Switch>
@@ -86,7 +102,7 @@ const Root = () => (
         </Switch>
       </App>
     </Provider>
-  </BrowserRouter>
+  </HashRouter>
 )
 
 
