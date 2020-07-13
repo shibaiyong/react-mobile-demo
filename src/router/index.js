@@ -69,7 +69,7 @@ class RouterBefore extends React.Component{
       return item.path === pathname
     })
     if(!TargetRoute){//路由不合法,重定向
-      return <Redirect to='/'/>
+      return <Redirect to='/progressquery'/>
     }
 
     const { path, component, ParentComponent, title } = TargetRoute
