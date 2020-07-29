@@ -13,7 +13,7 @@ var reducer = (state={
   num:0, text:'hello word11'},action)=>{
   switch(action.type) {
     case 'changenum':
-      copystate.num++; 
+      copystate.num++;
       return Object.assign({},state,{num:copystate.num}); 
 
     case 'changetext':

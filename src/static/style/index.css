@@ -4,7 +4,7 @@
   
 }
 .header,.body,.footer{
-    box-sizing:border-box;
+  box-sizing:border-box;
 }
 .header{
     height: 50px;
@@ -192,4 +192,19 @@
 }
 .page-container .data-number .active a{
   color:white;
+}
+.login .myselect ul li{
+  text-align: center;
+}
+
+.login .myselect .showMyselect{
+  display: block;
+}
+
+.login .myselect .hiddenMyselect{
+  display: none;
+}
+
+.login .myselect .ative{
+  background:red;
 }

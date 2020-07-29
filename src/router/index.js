@@ -14,7 +14,7 @@ import Register from '../components/logins/Register'
 
 
 import App from '../components/app/APP'
-import { Mine } from '../components/mine/Mine.js';
+import { Mine } from '../components/mine/Mine.js'
 
 const routerList = [
   {

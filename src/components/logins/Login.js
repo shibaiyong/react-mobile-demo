@@ -3,7 +3,20 @@ import { connect } from 'react-redux';
 import { List, InputItem,Toast } from 'antd-mobile';
 import { createForm } from 'rc-form';
 
+import MySelect from '../common/MySelect'
+
 class Login extends React.Component {
+
+  constructor(props){
+    super(props)
+    this.state={
+      datas:[
+        {id:1,value:"一"},
+        {id:2,value:"二"}
+      ],
+      defaultValue:"1"
+    }
+  }
   
   submitForm = () => {
     this.props.form.validateFields({ force: true }, (error) => {
@@ -44,6 +57,7 @@ class Login extends React.Component {
   }
   render() {
     const { getFieldProps, getFieldError } = this.props.form
+    const { defaultValue, datas } = this.state
     return (
       <div className='login'>
         <ul>
@@ -76,6 +90,10 @@ class Login extends React.Component {
           <li><input type="checkbox" ref={input => this.remember = input}/>记住密码</li>
           <li>{this.props.num}</li>
         </ul>
+
+        <MySelect datas={datas} defaultValue={defaultValue} selectIdName="select1" onChange={(val,id,name)=>console.log(val)}>
+              <label>图标</label>
+        </MySelect>
         
       </div>
     )
@@ -93,7 +111,7 @@ function mapStateToProps(state) {
 //需要触发什么行为
 function mapDispatchToProps(dispatch) {
   return {
-    changeNum: () => dispatch({ type: 'changenum', num: num }),
+    changeNum: () => dispatch({ type: 'changenum'}),
     changeText: (e) => {
       var val = e.target.value
       dispatch({ type: 'changetext', text: val })
