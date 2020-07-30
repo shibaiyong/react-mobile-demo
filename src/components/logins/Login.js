@@ -14,7 +14,7 @@ class Login extends React.Component {
         {id:1,value:"一"},
         {id:2,value:"二"}
       ],
-      defaultValue:"1"
+      defaultValue:"2"
     }
   }
   

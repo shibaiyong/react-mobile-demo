@@ -4,13 +4,12 @@ import { Link } from 'react-router-dom'
 class MySelect extends React.Component {
 
     constructor(props) {
-      
       super(props)
-      console.log(this.props.defaultValue)
+      const { defaultValue } = this.props
       this.state={
         isShow:false,
         activeItem:'',
-        defaultValue:this.props.defaultValue
+        defaultValue: defaultValue ? defaultValue : ''
       }
     }
 
@@ -23,21 +22,17 @@ class MySelect extends React.Component {
     }
 
     setDefaultValue(){
-      if(this.props.defaultValue){
 
+      if(this.props.defaultValue){
         let item = this.props.datas.find((item,index)=>{
           return item.id == this.props.defaultValue
         })
-
-        console.log(item.value)
-
         this.setState({
-          defaultValue:item.value
+          defaultValue:item.value,
+          activeItem:item.id
         })
-
-        console.log()
-        
       }
+      
     }
 
     componentWillReceiveProps(nextProp){
@@ -48,9 +43,7 @@ class MySelect extends React.Component {
 
       // 获取选择框的ref，当在组件外点击时的时候收起下拉框
       document.addEventListener('click', (e) => {
-        console.log(this.myinput.contains(e.target))
         if (this.myinput && this.myinput !== e.target && !this.myinput.contains(e.target)) {
-          
           this.setState({
             isShow:false
           })
@@ -59,9 +52,7 @@ class MySelect extends React.Component {
         //若为true,捕获阶段执行，先于下拉数据项上的点击事件执行，下拉选项会收起。从而导致，下拉数据项上的点击事件无法被触发。
         //若为false,冒泡阶段执行，情况与以上相反。
       }, true)
-
-      this.setDefaultValue();
-      
+      this.setDefaultValue()
     }
     render() {
       const {datas, children, onChange, selectIdName} = this.props
@@ -70,7 +61,7 @@ class MySelect extends React.Component {
           this.setState({
           isShow:true
         })}}>
-        <input type="text" value={this.state.defaultValue} ref={input => this.myinput = input} onChange={()=>{}}/>
+        <input type="text" value={this.state.defaultValue} ref={input => this.myinput = input} onChange={()=>{}} readOnly/>
         <span style={{ position:'absolute',top:0,right:0}}>{children}</span>
           <ul className={this.state.isShow ? 'showMyselect':'hiddenMyselect'}>
             {
